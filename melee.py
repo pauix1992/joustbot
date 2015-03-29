@@ -1,6 +1,6 @@
 # Melee variables
 
-MELEE_DICE = 50
+MELEE_DICE = os.environ['DICE_MELEE']
 
 
 

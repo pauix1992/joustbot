@@ -18,7 +18,7 @@ checked_comments = []
 # Run the bot
 def start_bot():
     r = praw.Reddit('/u/pauix bot for running jousts and melees')
-    r.login(os.environ['REDDIT_USERNAME'],os.environ['REDDIT_PASSWORD'])
+    r.login('joustbot','BlackGoatOfQohor')
     subreddits = r.get_subreddit('qohorpowers+ironthronepowers+stannispowers+woiafpowers')
     comments = subreddits.get_comments(limit=100)
     comments = subreddits.get_comments()    
