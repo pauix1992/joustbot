@@ -25,10 +25,9 @@ def start_bot():
     for comment in comments:
         checked_comments.append(comment.id)
 
-
     while(1):
         try:
-            find_new_comments()
+            find_new_comments(subreddits)
         except Exception:
             print("SOMETHING FUCKED UP!")
         sleep(60)
@@ -36,7 +35,7 @@ def start_bot():
 
 
 # Function the bot will use to find new comments
-def find_new_comments():
+def find_new_comments(subreddits):
     comments = subreddits.get_comments()    
     for comment in comments:
         body = comment.body
