@@ -6,11 +6,11 @@ from random import randint;
 
 
 # import custom classes
-from joust import *
-from melee import *
+#from joust import *
+#from melee import *
 from archery import *
-from horse_racing import *
-from duel import *
+#from horse_racing import *
+#from duel import *
 
 # Array that stores the IDs of checked comments
 checked_comments = []

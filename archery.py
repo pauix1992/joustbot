@@ -1,5 +1,5 @@
 # Archery variables
-ARCHERY_DICE = os.environ['DICE_ARCHERY']
+ARCHERY_DICE = 100 # os.environ['DICE_ARCHERY']
 
 
 ## Run an archery competition. 
