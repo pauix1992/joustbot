@@ -89,7 +89,7 @@ def find_new_comments(subreddits):
        #            comment.reply(result[20000:29999])
        #
        #
-            elif body.find("joustbot archery") >= 0:
+            elif body.find(" archery") >= 0:
                 print("rolling an archery competition")
                 b = body.split("\n")
                 c = []
