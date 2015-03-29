@@ -29,7 +29,7 @@ def start_bot():
  #       try:
         find_new_comments(subreddits)
 #        except Exception:
-            print("SOMETHING FUCKED UP!")
+        #print("SOMETHING FUCKED UP!")
         sleep(60)
 
 
