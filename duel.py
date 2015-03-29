@@ -1,8 +1,8 @@
-from random import randint
-
+# DUEL variables
 DUEL_DICE = 4
 MAX_HP = 6
 
+# write the action on screen
 def action(roll):
     if roll == 4:
         return "blocks"
@@ -13,7 +13,7 @@ def action(roll):
     else:
         return "swings high"
 
-
+# Duel between two fighters
 def duel(fighter1,fighter2):
     hp1 = MAX_HP
     hp2 = MAX_HP
