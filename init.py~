@@ -104,7 +104,7 @@ def find_new_comments(subreddits):
                     comment.reply(result[20000:29999])
 
             elif body.find("joustbot duel") >= 0:
-                print("rolling a duel")
+                print("rolling a joust")
        #        b = body.split("\n")
        #        result = ''
        #        for pair in b:
