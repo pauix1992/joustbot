@@ -57,7 +57,6 @@ def horse_racing(*arg):
                 a.append(survivors[i])
         survivors = a
         res += "-------------------------------------\n\n"
-        sleep(10)
     if len(survivors) == 1:
         c = survivors[0].split(" - ")
         return res + c[0] + " has won!"
