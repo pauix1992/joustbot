@@ -39,15 +39,15 @@ def pretty_result(winner,loser,tilt_result,roll_w,roll_l):
 # Get the malus the loser will take
 def get_malus(tilt_result):
     tilt_result = abs(tilt_result)
-    if tilt_result > DEATH_ROLL_TRIGGER:
+    if tilt_result > JOUST_DEATH_ROLL_TRIGGER:
         return -1
-    if tilt_result > UNHORSE_TRIGGER:
+    if tilt_result > JOUST_UNHORSE_TRIGGER:
         return -1
-    if tilt_result > BROKEN_LANCE_TRIGGER:
+    if tilt_result > JOUST_BROKEN_LANCE_TRIGGER:
         return 3
-    elif tilt_result > STRONG_HIT_TRIGGER:
+    elif tilt_result > JOUST_STRONG_HIT_TRIGGER:
         return 2
-    elif tilt_result > HIT_TRIGGER:
+    elif tilt_result > JOUST_HIT_TRIGGER:
         return 1
     else:
         return 0
