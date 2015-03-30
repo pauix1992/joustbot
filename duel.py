@@ -83,9 +83,11 @@ def duel(fighter1,fighter2):
         if hp2 < 0:
             hp2 = 0
                 
-        res = fighter1 + " " + action(roll1) + " and " + fighter2 +" " + action(roll2) + "! ("+str(hp1)+"-"+str(hp2)+")"
-        print(res)
+        res += fighter1 + " " + action(roll1) + " and " + fighter2 +" " + action(roll2) + "! ("+str(hp1)+"-"+str(hp2)+")  \n"
+
     if hp1 > hp2:
-        print(fighter1,"has won!")
+       res += fighter1 + " has won!"
     else:
-        print(fighter2,"has won!")
+       res += fighter2 + " has won!"
+
+    return res
