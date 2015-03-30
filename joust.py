@@ -99,7 +99,7 @@ def joust(rider1,rider2):
             if abs(tilt_res) > JOUST_UNHORSE_TRIGGER:
                res += "**"+winner+" has won!\n\n"
                return res
-            elif abs(tilt_res) > BROKEN_LANCE_TRIGGER:
+            elif abs(tilt_res) > JOUST_BROKEN_LANCE_TRIGGER:
                 if  tilt_res > 0:
                     broken_lances_1 += 1
                 else:
