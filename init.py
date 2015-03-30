@@ -27,7 +27,7 @@ def start_bot():
 
     while(1):
         try:
-        find_new_comments(subreddits)
+            find_new_comments(subreddits)
         except Exception:
             print("SOMETHING FUCKED UP!")
         sleep(60)
