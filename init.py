@@ -26,10 +26,10 @@ def start_bot():
         checked_comments.append(comment.id)
 
     while(1):
-        try:
-            find_new_comments(subreddits)
-        except Exception:
-            print("SOMETHING FUCKED UP!")
+ #       try:
+        find_new_comments(subreddits)
+#        except Exception:
+  #          print("SOMETHING FUCKED UP!")
         sleep(60)
 
 
