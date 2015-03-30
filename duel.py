@@ -1,3 +1,5 @@
+from random import randint
+
 # DUEL variables
 DUEL_DICE = 4
 MAX_HP = 6
@@ -18,8 +20,6 @@ def duel(fighter1,fighter2):
     hp1 = MAX_HP
     hp2 = MAX_HP
     
-    res = fighter1 + " and " + fighter2 + " start a duel! ("+str(MAX_HP)+"-"+str(MAX_HP)+")"
-    print(res)
     while(hp1 > 0 and hp2 > 0):
         roll1 = randint(1,DUEL_DICE)
         roll2 = randint(1,DUEL_DICE)
