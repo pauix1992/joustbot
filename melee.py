@@ -28,7 +28,6 @@ def melee(comment,*arg):
                 a.append(survivors[i])
         survivors = a
         res += "-------------------------------------\n\n"
-        sleep(10)
     if len(survivors) == 1:
         return res + survivors[0] + " has won!"
     elif len(survivors) == 2:
