@@ -1,12 +1,11 @@
 # Load Joust variables
-import os
 from random import randint
-JOUST_DICE = os.environ['DICE_JOUST']
-JOUST_DEATH_ROLL_TRIGGER = os.environ['JOUST_DEATH_ROLL_DIFFERENCE']
-JOUST_UNHORSE_TRIGGER = os.environ['JOUST_UNHORSE_DIFFERENCE']
-JOUST_BROKEN_LANCE_TRIGGER = os.environ['JOUST_BROKEN_LANCE_DIFFERENCE']
-JOUST_STRONG_HIT_TRIGGER = os.environ['JOUST_STRONG_HIT_DIFFERENCE']
-JOUST_HIT_TRIGGER = os.environ['JOUST_HIT_DIFFERENCE']
+JOUST_DICE = 20
+JOUST_DEATH_ROLL_TRIGGER = 17
+JOUST_UNHORSE_TRIGGER = 15
+JOUST_BROKEN_LANCE_TRIGGER = 10
+JOUST_STRONG_HIT_TRIGGER = 7
+JOUST_HIT_TRIGGER = 4
 
 
 # roll 2d20 taking both players' penalty into account
@@ -22,15 +21,15 @@ def tilt(malus1, malus2):
 # Formats the result into something nice
 def pretty_result(winner,loser,tilt_result,roll_w,roll_l):
     tilt_result = abs(tilt_result)
-    if tilt_result > DEATH_ROLL_TRIGGER:
+    if tilt_result > JOUST_DEATH_ROLL_TRIGGER:
         res = loser + " is brutally unhorsed by " + winner
-    elif tilt_result > UNHORSE_TRIGGER:
+    elif tilt_result > JOUST_UNHORSE_TRIGGER:
         res =  loser + " is unhorsed by " + winner
-    elif tilt_result > BROKEN_LANCE_TRIGGER:
+    elif tilt_result > JOUST_BROKEN_LANCE_TRIGGER:
         res =  winner + " breaks a lance against " + loser
-    elif tilt_result > STRONG_HIT_TRIGGER:
+    elif tilt_result > JOUST_STRONG_HIT_TRIGGER:
         res =  winner + " deals a strong hit to " + loser
-    elif tilt_result > HIT_TRIGGER:
+    elif tilt_result > JOUST_HIT_TRIGGER:
         res =  winner + " hits " + loser
     else:
         res = winner + " and " + loser + " exchange glancing hits"
@@ -56,11 +55,11 @@ def get_malus(tilt_result):
 
 def death_roll(jouster):
     roll = randint(1,JOUST_DICE)
-    if roll < 5:
+    if roll < 2:
         return jouster + " has died! ["+str(roll)+"]\n\n"
-    elif roll < 10:
+    elif roll < 5:
         return jouster + " is maimed! ["+str(roll)+"]\n\n"
-    elif roll < 15:
+    elif roll < 10:
         return jouster + " got hurt! ["+str(roll)+"]\n\n"
     else :
         return jouster + " is fine! ["+str(roll)+"]\n\n"

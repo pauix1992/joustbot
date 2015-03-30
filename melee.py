@@ -1,8 +1,6 @@
 # Melee variables
-import os
 from random import randint
-MELEE_DICE = os.environ['DICE_MELEE']
-
+MELEE_DICE = 50
 
 
 ## Run a melee fight until no more than 2 contestants are left.

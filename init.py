@@ -18,18 +18,18 @@ checked_comments = []
 # Run the bot
 def start_bot():
     r = praw.Reddit('/u/pauix bot for running jousts and melees')
-    r.login('joustbot','BlackGoatOfQohor')
-    subreddits = r.get_subreddit('qohorpowers+ironthronepowers+stannispowers+woiafpowers')
+    r.login(os.environ['REDDIT_USERNAME'],os.environ['REDDIT_PASSWD'])
+    subreddits = r.get_subreddit(os.environ['SUBREDDITS'])
     comments = subreddits.get_comments(limit=100)
     comments = subreddits.get_comments()    
     for comment in comments:
         checked_comments.append(comment.id)
 
     while(1):
- #       try:
-        find_new_comments(subreddits)
-#        except Exception:
-        print("SOMETHING FUCKED UP!")
+        try:
+            find_new_comments(subreddits)
+        except Exception:
+            print("SOMETHING FUCKED UP!")
         sleep(60)
 
 

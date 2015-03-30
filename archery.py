@@ -1,7 +1,6 @@
 # Archery variables
-import os
 from random import randint
-ARCHERY_DICE =  os.environ['DICE_ARCHERY']
+ARCHERY_DICE =  100
 
 
 ## Run an archery competition. 
