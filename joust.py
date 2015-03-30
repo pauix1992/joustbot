@@ -1,4 +1,6 @@
 # Load Joust variables
+import os
+from random import randint
 JOUST_DICE = os.environ['DICE_JOUST']
 JOUST_DEATH_ROLL_TRIGGER = os.environ['JOUST_DEATH_ROLL_DIFFERENCE']
 JOUST_UNHORSE_TRIGGER = os.environ['JOUST_UNHORSE_DIFFERENCE']

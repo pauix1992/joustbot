@@ -1,5 +1,6 @@
 # Melee variables
-
+import os
+from random import randint
 MELEE_DICE = os.environ['DICE_MELEE']
 
 

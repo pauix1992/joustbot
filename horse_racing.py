@@ -1,4 +1,6 @@
 # Horse racing variables
+import os
+from random import randint
 HORSE_RACING_DICE = os.environ['DICE_HORSE_RACE']
 HORSE_RACING_DEATH_ROLL_TRIGGER = os.environ['HORSE_RACING_DEATH_ROLL_MAX']
 HORSE_RACING_DEATH_TRIGGER = os.environ['HORSE_RACING_DEATH_ROLL_DEATH']
