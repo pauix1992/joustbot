@@ -91,12 +91,12 @@ def joust(rider1,rider2):
                 roll_loser = rolls[0]
                 malus2 += get_malus(tilt_res)
             res += pretty_result(winner,loser,tilt_res,roll_winner,roll_loser)
-            if abs(tilt_res) > UNHORSE_TRIGGER:
+            if abs(tilt_res) > JOUST_DEATH_ROLL_TRIGGER:
                res += "DEATH ROLL: "
                res += death_roll(loser)
                res += "**"+winner+" has won!**\n\n"
                return res   
-            if abs(tilt_res) > UNHORSE_TRIGGER:
+            if abs(tilt_res) > JOUST_UNHORSE_TRIGGER:
                res += "**"+winner+" has won!\n\n"
                return res
             elif abs(tilt_res) > BROKEN_LANCE_TRIGGER:
