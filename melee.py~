@@ -31,7 +31,7 @@ def melee_recursive(*arg)
     res=''
     survivors = list(arg)
     while len(survivors) > 2:
-        r_min = 2*MELEE_DICE
+        r_min = MELEE_DICE+1
         roll = [None]*len(survivors)
         a = []
         for i in range(0,len(survivors)):
