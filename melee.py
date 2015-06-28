@@ -13,13 +13,13 @@ def melee(comment):
     b = body.split("\n")
     contestants = []
     for contestant in b:
-    if contestant.find("joustbot") < 0:
-        c.append(contestant[3:-3])
+        if contestant.find("joustbot") < 0:
+            c.append(contestant[3:-3])
 
     result = melee_recursive(*c)
 
 
-        comment.reply(result[:9999])
+    comment.reply(result[:9999])
     if len(result) > 10000:
         comment.reply(result[10000:19999])
     if len(result) > 20000:
@@ -27,7 +27,7 @@ def melee(comment):
     print(result)
 
 
-def melee_recursive(*arg)
+def melee_recursive(*arg):
     res=''
     survivors = list(arg)
     while len(survivors) > 2:
