@@ -10,5 +10,5 @@ from init import *
 
 
 
-start_bot()
+#start_bot()
 

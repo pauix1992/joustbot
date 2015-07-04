@@ -18,8 +18,8 @@ checked_comments = []
 # Run the bot
 def start_bot():
     r = praw.Reddit('/u/pauix bot for IronThronePowers')
-    r.login(os.environ['REDDIT_USERNAME'],os.environ['REDDIT_PASSWD'])
-    subreddits = r.get_subreddit(os.environ['SUBREDDITS']) # Currently ITP, WP and some test subreddits.
+    r.login('joustbot','BlackGoatOfQohor')
+    subreddits = r.get_subreddit('qohorpowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=100)
     comments = subreddits.get_comments()    
 
@@ -42,7 +42,7 @@ def find_new_comments(subreddits):
     comments = subreddits.get_comments()    
     for comment in comments:
         body = comment.body
-        if body.find("joustbot") >= 0 and comment.id not in checked_comments:
+        if comment.id not in checked_comments:
            
             if body.find(" joust") >= 0:
                 print("rolling a joust")

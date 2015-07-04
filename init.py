@@ -18,8 +18,8 @@ checked_comments = []
 # Run the bot
 def start_bot():
     r = praw.Reddit('/u/pauix bot for IronThronePowers')
-    r.login(os.environ['REDDIT_USERNAME'],os.environ['REDDIT_PASSWD'])
-    subreddits = r.get_subreddit(os.environ['SUBREDDITS']) # Currently ITP, WP and some test subreddits.
+    r.login('joustbot','BlackGoatOfQohor')
+    subreddits = r.get_subreddit('qohorpowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=100)
     comments = subreddits.get_comments()    
 
@@ -29,10 +29,7 @@ def start_bot():
     
     # Keep searching for comments.
     while(1):
-        try:
-            find_new_comments(subreddits)
-        except Exception:
-            print("SOMETHING FUCKED UP!")
+        find_new_comments(subreddits)
         sleep(60)
 
 
