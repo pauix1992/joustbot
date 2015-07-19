@@ -41,7 +41,7 @@ def find_new_comments(subreddits):
         body = comment.body
         if comment.id not in checked_comments:
            
-            if body.find(" joust") >= 0:
+            if body.find("joustbot joust") >= 0:
                 print("rolling a joust")
                 b = body.split("\n")
                 result = ''
@@ -78,7 +78,7 @@ def find_new_comments(subreddits):
                    comment.reply(result[20000:29999])
        
        
-            elif body.find(" archery") >= 0:
+            elif body.find("joustbot archery") >= 0:
                 print("rolling an archery competition")
                 b = body.split("\n")
                 c = []
