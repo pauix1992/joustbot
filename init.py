@@ -26,7 +26,7 @@ def start_bot():
     # Load all parsed comments to prevent joustbot from answering to them again.
     for comment in comments:
         checked_comments.append(comment.id)
-    
+    print("READY TO ROCK!")
     # Keep searching for comments.
     while(1):
         find_new_comments(subreddits)
@@ -63,7 +63,7 @@ def find_new_comments(subreddits):
                 melee(comment)
        
        
-            elif body.find(" horse race") >= 0:
+            elif body.find("joustbot horse race") >= 0:
                 print("rolling a horse race")
                 b = body.split("\n")
                 c = []
@@ -92,7 +92,7 @@ def find_new_comments(subreddits):
                 if len(result) > 20000:
                     comment.reply(result[20000:29999])
 
-            elif body.find(" patrol") >= 0:
+            elif body.find("joustbot patrol") >= 0:
                 print("roll for a patrol. NO DONE YET")
 #                b = body.split("\n")
 #                c = []
