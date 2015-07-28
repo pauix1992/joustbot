@@ -19,7 +19,7 @@ checked_comments = []
 def start_bot():
     r = praw.Reddit('/u/pauix bot for IronThronePowers')
     r.login('joustbot','BlackGoatOfQohor')
-    subreddits = r.get_subreddit('qohorpowers') # Currently ITP, WP and some test subreddits.
+    subreddits = r.get_subreddit('qohorpowers+ironthronepowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=100)
     comments = subreddits.get_comments()    
 
