@@ -66,10 +66,10 @@ def death_roll(jouster):
 
 
 # Joust to 7 tilts
-def joust(rider1,rider2):
+def joust(rider1,rider2,bonus1,bonus2):
     res = "\n\n"
-    malus1 = 0
-    malus2 = 0
+    malus1 = -int(bonus1)
+    malus2 = -int(bonus2)
     broken_lances_1 = 0
     broken_lances_2 = 0   
     for x in range(1,8):

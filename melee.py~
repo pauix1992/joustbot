@@ -14,7 +14,7 @@ def melee(comment):
         if contestant.find("joustbot") < 0 and len(contestant) > 4:
             contestants.append(contestant[2:-2])
 
-    result = melee_recursive(comment,*contestants)
+    result = melee_recursive(comment,1,*contestants)
 
     # print result
     comment.reply(result[:9999])
@@ -29,8 +29,8 @@ def melee(comment):
 # arg is a list of contestants
 # If 2 contestants remain, the final duel must be still run manually 
 # If 1 player remains, he's considered the winner.
-def melee_recursive(comment,*arg):
-    res=''
+def melee_recursive(comment,ronda,*arg):
+    res="# ROUND "+str(ronda)+"\n\n"
     survivors = list(arg)
     if len(survivors) > 2:
         r_min = 200
@@ -39,12 +39,17 @@ def melee_recursive(comment,*arg):
         for i in range(0,len(survivors)):
             # everyone rolls
             player = survivors[i].split(',')
-            print(player[0])
-            roll[i] = randint(1,50)+int(player[1])
-            clean = int(roll[i])-int(player[1])
+            
+            roll[i] = randint(1,50)
+	    if len(player) > 1:
+                roll[i] = roll[i]+int(player[1])
+                clean = int(roll[i])-int(player[1])
             if roll[i] < r_min:
                 r_min = roll[i]
-            res += player[0] + " rolls a " + str(roll[i])+" (" + str(clean) + " + " + str(player[1])+ ")\n\n"
+            res += player[0] + " rolls a " + str(roll[i])
+            if len(player) > 1:
+                res+=" (" + str(clean) + " + " + str(player[1])+ ")"
+            res += "\n\n"
         for i in range(0,len(roll)):
             if roll[i] == r_min:
                 player = survivors[i].split(',')
@@ -53,9 +58,7 @@ def melee_recursive(comment,*arg):
                 a.append(survivors[i])
         survivors = a
         comment.reply(res);
-        for c in comment.replies:         
-            comment = c
-        return melee_recursive(comment,*survivors);
+        return melee_recursive(comment,ronda+1*survivors);
 
 
     if len(survivors) == 1:

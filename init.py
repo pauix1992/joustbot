@@ -17,7 +17,7 @@ checked_comments = []
 
 # Run the bot
 def start_bot():
-    r = praw.Reddit('/u/pauix bot for IronThronePowers')
+    r = praw.Reddit('IronThronePowers thingy')
     r.login('joustbot','BlackGoatOfQohor')
     subreddits = r.get_subreddit('qohorpowers+ironthronepowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=100)
@@ -48,8 +48,19 @@ def find_new_comments(subreddits):
                 for pair in b:
                    c = pair.split(" - ")
                    if len(c) > 1:
-                       result +="***" + c[0] + " VERSUS " + c[1] + "!***\n\n"
-                       result += joust(c[0],c[1]) or "ERROR!"
+		       d = c[0].split(",")
+                       e = c[1].split(",")
+		       if len(d) > 1:
+                           b1 = d[1]
+                       else:
+                           b1 = 0
+                       if len(e) > 1:
+                           b2 = e[1]
+                       else:
+                           b2 = 0
+
+                       result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
+                       result += joust(d[0],e[0],b1,b2) or "ERROR!"
                        result += "------------------------------------------------------\n\n"
                 comment.reply(result[:9999])
                 if len(result) > 10000:
