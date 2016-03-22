@@ -12,6 +12,10 @@ from archery import *
 from horse_racing import *
 from duel import *
 
+# FIX WARNING
+import requests.packages.urllib3
+requests.packages.urllib3.disable_warnings()
+
 # Array that stores the IDs of checked comments
 checked_comments = []
 
