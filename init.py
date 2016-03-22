@@ -52,7 +52,7 @@ def find_new_comments(subreddits):
                        d = d.split(",")
                        e = c[1]
                        e = e.split(",")
-		       if len(d) > 1:
+                       if len(d) > 1:
                            b1 = d[1]
                        else:
                            b1 = 0
