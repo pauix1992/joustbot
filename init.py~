@@ -48,8 +48,10 @@ def find_new_comments(subreddits):
                 for pair in b:
                    c = pair.split(" - ")
                    if len(c) > 1:
-		       d = c[0].split(",")
-                       e = c[1].split(",")
+		       d = c[0]
+                       d = d.split(",")
+                       e = c[1]
+                       e = e.split(",")
 		       if len(d) > 1:
                            b1 = d[1]
                        else:
