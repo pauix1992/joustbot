@@ -17,16 +17,16 @@ checked_comments = []
 
 # Run the bot
 def start_bot():
-    r = praw.Reddit('/u/pauix bot for IronThronePowers')
+    r = praw.Reddit(user_agent = 'IronThronePowers thingy')
     r.login('joustbot','BlackGoatOfQohor')
-    subreddits = r.get_subreddit('qohorpowers') # Currently ITP, WP and some test subreddits.
+    subreddits = r.get_subreddit('qohorpowers+ironthronepowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=100)
     comments = subreddits.get_comments()    
 
     # Load all parsed comments to prevent joustbot from answering to them again.
     for comment in comments:
         checked_comments.append(comment.id)
-    
+    print("READY TO ROCK!")
     # Keep searching for comments.
     while(1):
         find_new_comments(subreddits)
@@ -48,8 +48,19 @@ def find_new_comments(subreddits):
                 for pair in b:
                    c = pair.split(" - ")
                    if len(c) > 1:
-                       result +="***" + c[0] + " VERSUS " + c[1] + "!***\n\n"
-                       result += joust(c[0],c[1]) or "ERROR!"
+		       d = c[0].split(",")
+                       e = c[1].split(",")
+		       if len(d) > 1:
+                           b1 = d[1]
+                       else:
+                           b1 = 0
+                       if len(e) > 1:
+                           b2 = e[1]
+                       else:
+                           b2 = 0
+
+                       result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
+                       result += joust(d[0],e[0],b1,b2) or "ERROR!"
                        result += "------------------------------------------------------\n\n"
                 comment.reply(result[:9999])
                 if len(result) > 10000:
@@ -63,7 +74,7 @@ def find_new_comments(subreddits):
                 melee(comment)
        
        
-            elif body.find(" horse race") >= 0:
+            elif body.find("joustbot horse race") >= 0:
                 print("rolling a horse race")
                 b = body.split("\n")
                 c = []
@@ -92,7 +103,7 @@ def find_new_comments(subreddits):
                 if len(result) > 20000:
                     comment.reply(result[20000:29999])
 
-            elif body.find(" patrol") >= 0:
+            elif body.find("joustbot patrol") >= 0:
                 print("roll for a patrol. NO DONE YET")
 #                b = body.split("\n")
 #                c = []
