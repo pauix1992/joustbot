@@ -32,7 +32,11 @@ def melee(comment):
 def melee_recursive(comment,ronda,*arg):
     res="# ROUND "+str(ronda)+"\n\n"
     survivors = list(arg)
-    if len(survivors) > 2:
+    if len(survivors) == 1:
+        player = survivors[0].split(',')
+        comment.reply(res + player[0] + " has won!")
+        return
+    else:
         r_min = 200
         roll = [None]*len(survivors)
         a = []
@@ -41,7 +45,7 @@ def melee_recursive(comment,ronda,*arg):
             player = survivors[i].split(',')
             
             roll[i] = randint(1,50)
-	    if len(player) > 1:
+            if len(player) > 1:
                 roll[i] = roll[i]+int(player[1])
                 clean = int(roll[i])-int(player[1])
             if roll[i] < r_min:
@@ -57,18 +61,6 @@ def melee_recursive(comment,ronda,*arg):
             else:
                 a.append(survivors[i])
         survivors = a
-        new_comment = comment.reply(res);
-        return melee_recursive(new_comment,ronda+1,*survivors);
-
-
-    if len(survivors) == 1:
-        player = survivors[0].split(',')
-        return res + player[0] + " has won!"
-    elif len(survivors) == 2:
-        player1 = survivors[0].split(',')
-        player2 = survivors[1].split(',')
-        return res + player1[0] + " and " + player2[0] + " will have the final duel!"
-    
-
-
+        comment.reply(res);
+        return melee_recursive(comment,ronda+1,*survivors);
 
