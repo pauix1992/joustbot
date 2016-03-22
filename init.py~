@@ -36,7 +36,7 @@ def start_bot():
 
 # Function the bot will use to find new comments
 def find_new_comments(subreddits):
-    comments = subreddits.get_comments()    
+    comments = subreddits.get_comments(limit=100)    
     for comment in comments:
         body = comment.body
         if comment.id not in checked_comments:
@@ -48,11 +48,11 @@ def find_new_comments(subreddits):
                 for pair in b:
                    c = pair.split(" - ")
                    if len(c) > 1:
-		       d = c[0]
+                       d = c[0]
                        d = d.split(",")
                        e = c[1]
                        e = e.split(",")
-		       if len(d) > 1:
+                       if len(d) > 1:
                            b1 = d[1]
                        else:
                            b1 = 0
@@ -93,17 +93,17 @@ def find_new_comments(subreddits):
        
             elif body.find("joustbot archery") >= 0:
                 print("rolling an archery competition")
-                b = body.split("\n")
-                c = []
-                for contestant in b:
-                    if contestant.find("joustbot") < 0:
-                        c.append(contestant)
-                result = archery(*c)
-                comment.reply(result[:9999])
-                if len(result) > 10000:
-                    comment.reply(result[10000:19999])
-                if len(result) > 20000:
-                    comment.reply(result[20000:29999])
+           #     b = body.split("\n")
+            #    c = []
+             #   for contestant in b:
+              #      if contestant.find("joustbot") < 0:
+               #         c.append(contestant)
+       #         result = archery(*c)
+        #        comment.reply(result[:9999])
+         #       if len(result) > 10000:
+          #          comment.reply(result[10000:19999])
+           #     if len(result) > 20000:
+            #        comment.reply(result[20000:29999])
 
             elif body.find("joustbot patrol") >= 0:
                 print("roll for a patrol. NO DONE YET")

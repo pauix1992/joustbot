@@ -93,17 +93,18 @@ def find_new_comments(subreddits):
        
             elif body.find("joustbot archery") >= 0:
                 print("rolling an archery competition")
-                b = body.split("\n")
-                c = []
-                for contestant in b:
-                    if contestant.find("joustbot") < 0:
-                        c.append(contestant)
-                result = archery(*c)
-                comment.reply(result[:9999])
-                if len(result) > 10000:
-                    comment.reply(result[10000:19999])
-                if len(result) > 20000:
-                    comment.reply(result[20000:29999])
+                archery(comment)
+           #     b = body.split("\n")
+            #    c = []
+             #   for contestant in b:
+              #      if contestant.find("joustbot") < 0:
+               #         c.append(contestant)
+       #         result = archery(*c)
+        #        comment.reply(result[:9999])
+         #       if len(result) > 10000:
+          #          comment.reply(result[10000:19999])
+           #     if len(result) > 20000:
+            #        comment.reply(result[20000:29999])
 
             elif body.find("joustbot patrol") >= 0:
                 print("roll for a patrol. NO DONE YET")
