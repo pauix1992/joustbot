@@ -41,7 +41,7 @@ def melee_recursive(comment,ronda,*arg):
             player = survivors[i].split(',')
             
             roll[i] = randint(1,50)
-	    if len(player) > 1:
+            if len(player) > 1:
                 roll[i] = roll[i]+int(player[1])
                 clean = int(roll[i])-int(player[1])
             if roll[i] < r_min:
