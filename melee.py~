@@ -57,8 +57,8 @@ def melee_recursive(comment,ronda,*arg):
             else:
                 a.append(survivors[i])
         survivors = a
-        comment.reply(res);
-        return melee_recursive(comment,ronda+1,*survivors);
+        new_comment = comment.reply(res);
+        return melee_recursive(new_comment,ronda+1,*survivors);
 
 
     if len(survivors) == 1:
