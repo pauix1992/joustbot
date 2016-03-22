@@ -12,16 +12,12 @@ from archery import *
 from horse_racing import *
 from duel import *
 
-# FIX WARNING
-import requests.packages.urllib3
-requests.packages.urllib3.disable_warnings()
-
 # Array that stores the IDs of checked comments
 checked_comments = []
 
 # Run the bot
 def start_bot():
-    r = praw.Reddit('IronThronePowers thingy')
+    r = praw.Reddit(user_agent = 'IronThronePowers thingy')
     r.login('joustbot','BlackGoatOfQohor')
     subreddits = r.get_subreddit('qohorpowers+ironthronepowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=100)
