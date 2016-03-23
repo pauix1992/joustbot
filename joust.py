@@ -125,7 +125,7 @@ def joust_round(comment):
         if contestant.find("joustbot") < 0 and len(contestant) > 4:
             contestants.append(contestant[2:-2])
 
-    for i in range(0,len(contestants))
+    for i in range(0,len(contestants)):
         if i%2 == 1:
             result +="***" + contestants[i-1] + " VERSUS " + contestants[i] + "!***\n\n"
             result += joust(contestants[i-1],contestants[i],0,0) or "ERROR!"
