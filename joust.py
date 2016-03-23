@@ -115,7 +115,7 @@ def joust(rider1,rider2,bonus1,bonus2):
 
 
 #### Roll a tournament round
-def joust_round(comment)
+def joust_round(comment):
     body = comment.body
     b = body.split("\n")
     result = ''

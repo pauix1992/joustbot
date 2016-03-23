@@ -129,13 +129,9 @@ def joust_round(comment)
         result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
         result += joust(d[0],e[0],b1,b2) or "ERROR!"
         result += "------------------------------------------------------\n\n"
+        comment.reply(result)
         i = False
     else:
         i = True
         contestants = []
-
-    c = comment.reply(result[:9999])
-    if len(result) > 10000:
-       c = c.reply(result[10000:19999])
-    if len(result) > 20000:
-       c.reply(result[20000:29999])
+        result = ""
