@@ -134,4 +134,4 @@ def joust_round(comment):
     else:
         i = 1
         contestants = []
-        result = ""
+        result = ''
