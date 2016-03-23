@@ -131,8 +131,6 @@ def joust_round(comment):
             result += joust(contestants[i-1],contestants[i],0,0) or "ERROR!"
             result += "------------------------------------------------------\n\n"
             comment.reply(result)
-            i = 0
         else:
-            i = 1
             contestants = []
             result = ''
