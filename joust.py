@@ -126,8 +126,8 @@ def joust_round(comment):
             contestants.append(contestant[2:-2])
 
     if i == True:
-        result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
-        result += joust(d[0],e[0],b1,b2) or "ERROR!"
+        result +="***" + contestants[0] + " VERSUS " + contestants[0] + "!***\n\n"
+        result += joust(contestants[0],contestants[1],0,0) or "ERROR!"
         result += "------------------------------------------------------\n\n"
         comment.reply(result)
         i = False

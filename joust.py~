@@ -115,7 +115,7 @@ def joust(rider1,rider2,bonus1,bonus2):
 
 
 #### Roll a tournament round
-def joust_round(comment)
+def joust_round(comment):
     body = comment.body
     b = body.split("\n")
     result = ''
@@ -127,7 +127,7 @@ def joust_round(comment)
 
     if i == True:
         result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
-        result += joust(d[0],e[0],b1,b2) or "ERROR!"
+        result += joust(contestants) or "ERROR!"
         result += "------------------------------------------------------\n\n"
         comment.reply(result)
         i = False

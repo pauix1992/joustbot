@@ -44,12 +44,12 @@ def find_new_comments(subreddits):
             if body.find("joustbot joust") >= 0:
                 print("rolling a joust")
                 joust_round(comment)
-       
+                print("Done")      
        
             elif body.find("joustbot melee") >= 0:
                 print("rolling a melee")
                 melee(comment)
-       
+                print("Done")
        
             elif body.find("joustbot horse race") >= 0:
                 print("rolling a horse race")
@@ -64,11 +64,12 @@ def find_new_comments(subreddits):
                    comment.reply(result[10000:19999])
                 if len(result) > 20000:
                    comment.reply(result[20000:29999])
-       
+                print("Done")
        
             elif body.find("joustbot archery") >= 0:
                 print("rolling an archery competition")
                 archery(comment)
+                print("Done")
 
             elif body.find("joustbot patrol") >= 0:
                 print("roll for a patrol. NO DONE YET")
