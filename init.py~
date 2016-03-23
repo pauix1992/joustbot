@@ -25,6 +25,8 @@ def start_bot():
     # Load all parsed comments to prevent joustbot from answering to them again.
     for comment in comments:
         checked_comments.append(comment.id)
+
+
     print("READY TO ROCK!")
     # Keep searching for comments.
     while(1):
@@ -37,9 +39,8 @@ def start_bot():
 def find_new_comments(subreddits):
     comments = subreddits.get_comments(limit=100)    
     for comment in comments:
-        body = comment.body
         if comment.id not in checked_comments:
-           
+            body = comment.body           
             if body.find("joustbot joust") >= 0:
                 print("rolling a joust")
                 b = body.split("\n")

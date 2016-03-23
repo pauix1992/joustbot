@@ -55,21 +55,21 @@ def get_malus(tilt_result):
 
 def death_roll(jouster):
     roll = randint(1,JOUST_DICE)
-    if roll < 2:
+    if roll < 3:
         return jouster + " has died! ["+str(roll)+"]\n\n"
-    elif roll < 5:
+    elif roll < 6:
         return jouster + " is maimed! ["+str(roll)+"]\n\n"
-    elif roll < 10:
+    elif roll < 9:
         return jouster + " got hurt! ["+str(roll)+"]\n\n"
     else :
         return jouster + " is fine! ["+str(roll)+"]\n\n"
 
 
 # Joust to 7 tilts
-def joust(rider1,rider2):
+def joust(rider1,rider2,bonus1,bonus2):
     res = "\n\n"
-    malus1 = 0
-    malus2 = 0
+    malus1 = -int(bonus1)
+    malus2 = -int(bonus2)
     broken_lances_1 = 0
     broken_lances_2 = 0   
     for x in range(1,8):
@@ -97,7 +97,7 @@ def joust(rider1,rider2):
                res += "**"+winner+" has won!**\n\n"
                return res   
             if abs(tilt_res) > JOUST_UNHORSE_TRIGGER:
-               res += "**"+winner+" has won!\n\n"
+               res += "**"+winner+" has won!**\n\n"
                return res
             elif abs(tilt_res) > JOUST_BROKEN_LANCE_TRIGGER:
                 if  tilt_res > 0:
@@ -111,3 +111,31 @@ def joust(rider1,rider2):
     else:
         res += "**"+rider1+" and "+rider2+" tie with "+str(broken_lances_2)+" broken lances.**\n\n"
     return res
+
+
+
+#### Roll a tournament round
+def joust_round(comment)
+    body = comment.body
+    b = body.split("\n")
+    result = ''
+    i = False
+    contestants = []
+    for contestant in b:
+        if contestant.find("joustbot") < 0 and len(contestant) > 4:
+            contestants.append(contestant[2:-2])
+
+    if i == True:
+        result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
+        result += joust(d[0],e[0],b1,b2) or "ERROR!"
+        result += "------------------------------------------------------\n\n"
+        i = False
+    else:
+        i = True
+        contestants = []
+
+    c = comment.reply(result[:9999])
+    if len(result) > 10000:
+       c = c.reply(result[10000:19999])
+    if len(result) > 20000:
+       c.reply(result[20000:29999])

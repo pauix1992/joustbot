@@ -39,37 +39,11 @@ def start_bot():
 def find_new_comments(subreddits):
     comments = subreddits.get_comments(limit=100)    
     for comment in comments:
-        body = comment.body
         if comment.id not in checked_comments:
-           
+            body = comment.body           
             if body.find("joustbot joust") >= 0:
                 print("rolling a joust")
-                b = body.split("\n")
-                result = ''
-                for pair in b:
-                   c = pair.split(" - ")
-                   if len(c) > 1:
-                       d = c[0]
-                       d = d.split(",")
-                       e = c[1]
-                       e = e.split(",")
-                       if len(d) > 1:
-                           b1 = d[1]
-                       else:
-                           b1 = 0
-                       if len(e) > 1:
-                           b2 = e[1]
-                       else:
-                           b2 = 0
-
-                       result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
-                       result += joust(d[0],e[0],b1,b2) or "ERROR!"
-                       result += "------------------------------------------------------\n\n"
-                comment.reply(result[:9999])
-                if len(result) > 10000:
-                   comment.reply(result[10000:19999])
-                if len(result) > 20000:
-                   comment.reply(result[20000:29999])
+                joust_round(comment)
        
        
             elif body.find("joustbot melee") >= 0:

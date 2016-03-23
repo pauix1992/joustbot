@@ -14,15 +14,8 @@ def melee(comment):
         if contestant.find("joustbot") < 0 and len(contestant) > 4:
             contestants.append(contestant[2:-2])
 
-    result = melee_recursive(comment,1,*contestants)
+    melee_recursive(comment,1,*contestants)
 
-    # print result
-    comment.reply(result[:9999])
-    if len(result) > 10000:
-        comment.reply(result[10000:19999])
-    if len(result) > 20000:
-        comment.reply(result[20000:29999])             
-    print(result)
 
 
 ## Run a melee fight until no more than 2 contestants are left.
@@ -61,6 +54,6 @@ def melee_recursive(comment,ronda,*arg):
             else:
                 a.append(survivors[i])
         survivors = a
-        comment.reply(res);
-        return melee_recursive(comment,ronda+1,*survivors);
+        c = comment.reply(res);
+        return melee_recursive(c,ronda+1,*survivors);
 

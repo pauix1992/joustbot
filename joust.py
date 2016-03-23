@@ -55,11 +55,11 @@ def get_malus(tilt_result):
 
 def death_roll(jouster):
     roll = randint(1,JOUST_DICE)
-    if roll < 2:
+    if roll < 3:
         return jouster + " has died! ["+str(roll)+"]\n\n"
-    elif roll < 5:
+    elif roll < 6:
         return jouster + " is maimed! ["+str(roll)+"]\n\n"
-    elif roll < 10:
+    elif roll < 9:
         return jouster + " got hurt! ["+str(roll)+"]\n\n"
     else :
         return jouster + " is fine! ["+str(roll)+"]\n\n"
@@ -111,3 +111,27 @@ def joust(rider1,rider2,bonus1,bonus2):
     else:
         res += "**"+rider1+" and "+rider2+" tie with "+str(broken_lances_2)+" broken lances.**\n\n"
     return res
+
+
+
+#### Roll a tournament round
+def joust_round(comment)
+    body = comment.body
+    b = body.split("\n")
+    result = ''
+    i = False
+    contestants = []
+    for contestant in b:
+        if contestant.find("joustbot") < 0 and len(contestant) > 4:
+            contestants.append(contestant[2:-2])
+
+    if i == True:
+        result +="***" + d[0] + " VERSUS " + e[0] + "!***\n\n"
+        result += joust(d[0],e[0],b1,b2) or "ERROR!"
+        result += "------------------------------------------------------\n\n"
+        comment.reply(result)
+        i = False
+    else:
+        i = True
+        contestants = []
+        result = ""
