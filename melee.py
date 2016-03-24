@@ -14,7 +14,7 @@ def melee(comment):
         if contestant.find("joustbot") < 0 and len(contestant) > 4:
             survivors.append(contestant[2:-2])
     i = 1
-    while(len(survivors) > 1:
+    while(len(survivors) > 1):
         res = "### ROUND " + str(i) + "\n\n"
         r_min = 200
         roll = [None]*len(survivors)
