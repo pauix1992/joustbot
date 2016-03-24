@@ -12,24 +12,10 @@ def melee(comment):
     for contestant in b:
         # Checks if there's a contestant to add.
         if contestant.find("joustbot") < 0 and len(contestant) > 4:
-            contestants.append(contestant[2:-2])
-
-    melee_recursive(comment,1,*contestants)
-
-
-
-## Run a melee fight until no more than 2 contestants are left.
-# arg is a list of contestants
-# If 2 contestants remain, the final duel must be still run manually 
-# If 1 player remains, he's considered the winner.
-def melee_recursive(comment,ronda,*arg):
-    res="# ROUND "+str(ronda)+"\n\n"
-    survivors = list(arg)
-    if len(survivors) == 1:
-        player = survivors[0].split(',')
-        comment.reply(res + player[0] + " has won!")
-        return ""
-    else:
+            survivors.append(contestant[2:-2])
+    i = 1
+    while(len(survivors) > 1:
+        res = "### ROUND " + str(i) + "\n\n"
         r_min = 200
         roll = [None]*len(survivors)
         a = []
@@ -53,7 +39,16 @@ def melee_recursive(comment,ronda,*arg):
                 res += "**"+player[0] + " has been eliminated!**\n\n"
             else:
                 a.append(survivors[i])
+
         survivors = a
-        c = comment.reply(res);
-        return melee_recursive(c,ronda+1,*survivors);
+        comment = comment.reply(res)
+        sleep(2)
+        ++i
+
+    if len(survivors) == 1:
+        player = survivors[0].split(',')
+        res = res + player[0] + " has won!"
+
+    else:
+        return "ERROR: Last round should be re-rolled!"
 

@@ -18,7 +18,7 @@ checked_comments = []
 # Run the bot
 def start_bot():
     r = praw.Reddit(user_agent = 'IronThronePowers thingy')
-    r.login('joustbot','BlackGoatOfQohor')
+    r.login('joustbot','BlackGoatOfQohor',disable_warning=True)
     subreddits = r.get_subreddit('qohorpowers+ironthronepowers') # Currently ITP, WP and some test subreddits.
     comments = subreddits.get_comments(limit=1000)
 
