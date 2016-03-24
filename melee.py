@@ -8,7 +8,7 @@ MELEE_DICE = 50
 def melee(comment):
     body = comment.body
     b = body.split("\n")
-    contestants = []
+    survivors = []
     for contestant in b:
         # Checks if there's a contestant to add.
         if contestant.find("joustbot") < 0 and len(contestant) > 4:
